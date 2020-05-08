@@ -7,37 +7,39 @@ import java.util.HashMap;
 
 public class ItemCatalog {
 
-    private HashMap<Integer,GenericItem> catalog =
-            new HashMap<Integer,GenericItem>();
+    private HashMap<Integer, GenericItem> catalog =
+            new HashMap<Integer, GenericItem>();
     private ArrayList<GenericItem> allCatalog =
             new ArrayList<GenericItem>();
 
-    public ItemCatalog(){
+    public ItemCatalog() {
         this.catalog = new HashMap<>();
         this.allCatalog = new ArrayList<>();
     }
 
     public void addItem(GenericItem item) throws ItemAlreadyExistException {
-        if (catalog.containsKey(item.getID()))
+        if (catalog.containsKey(item.getId())) {
             throw new ItemAlreadyExistException();
-        catalog.put(item.getID(), item);
+        }
+        catalog.put(item.getId(), item);
         allCatalog.add(item);
     }
 
-    public void printItems(){
-        for (GenericItem tempItem : allCatalog){
+    public void printItems() {
+        for (GenericItem tempItem : allCatalog) {
             System.out.println(tempItem.toString());
         }
     }
 
-    public GenericItem findItemByID(int id){
+    public GenericItem findItemByID(int id) {
         return catalog.getOrDefault(id, null);
     }
 
-    public GenericItem findItemByIDAL(int id){
-        for(GenericItem i : allCatalog){
-            if(i.getID() == id)
+    public GenericItem findItemByIDAL(int id) {
+        for (GenericItem i : allCatalog) {
+            if (i.getId() == id) {
                 return i;
+            }
         }
         return null;
     }

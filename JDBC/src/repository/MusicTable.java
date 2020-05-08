@@ -9,12 +9,29 @@ import java.util.Date;
 
 /**
  * Class MusicTable
+ *
  */
 public class MusicTable extends BaseTable implements TableOperations {
+    /**
+     * Default constructor with call super("Musics")
+     * @throws SQLException
+     */
     public MusicTable() throws SQLException {
         super("Musics");
     }
 
+    /**
+     * Creating sql table
+     * with raws:
+     * id
+     * title
+     * artist
+     * date
+     * listPrice
+     * price
+     * version
+     * @throws SQLException
+     */
     @Override
     public void createTable() throws SQLException {
         super.executeSqlStatement("CREATE TABLE IF NOT EXISTS Musics(" +
@@ -30,9 +47,8 @@ public class MusicTable extends BaseTable implements TableOperations {
 
     /**
      * Insert music into the table
-     *
      * @param music Input music
-     * @throws SQLException An exception that provides information on a database access error or other errors
+     * @throws SQLException database access error or other errors
      */
     public void insertIntoTable(Music music) throws SQLException {
         super.executeSqlStatement("INSERT INTO Musics VALUES " +
@@ -44,7 +60,7 @@ public class MusicTable extends BaseTable implements TableOperations {
     /**
      * Print all musics from table
      *
-     * @throws SQLException An exception that provides information on a database access error or other errors
+     * @throws SQLException database access error or other errors
      */
     public void printAll() throws SQLException {
         Statement state = connection.createStatement();
@@ -63,10 +79,9 @@ public class MusicTable extends BaseTable implements TableOperations {
 
     /**
      * Search music by ID
-     *
      * @param inputID Input ID
      * @return Searched music
-     * @throws SQLException An exception that provides information on a database access error or other errors
+     * @throws SQLException database access error or other errors
      */
     public Music searchByID(int inputID) throws SQLException {
         Statement state = connection.createStatement();

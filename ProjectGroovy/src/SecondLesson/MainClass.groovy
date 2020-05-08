@@ -1,13 +1,21 @@
 package SecondLesson
 
-import org.testng.internal.annotations.IAfterClass
-
-import java.nio.channels.MulticastChannel
-
+/**
+ * Method to test null param
+ * (possible)
+ * @param temp any Integer number
+ * @return temp
+ */
 def Integer toInteger(Integer temp){
     return temp
 }
 
+/**
+ * Method to test null param
+ * (impossible)
+ * @param temp any Integer number
+ * @return temp
+ */
 def int toInt(int temp){
     return temp
 }

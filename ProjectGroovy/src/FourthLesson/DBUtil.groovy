@@ -1,5 +1,8 @@
 package FourthLesson
 
+/**
+ * demonstration of work with data base
+ */
 @Grapes([
         @Grab(group='org.xerial',
                 module='sqlite-jdbc',

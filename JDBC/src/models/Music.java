@@ -12,14 +12,13 @@ public class Music extends BaseModel {
     private int version;
 
     /**
-     * Constructor with parameters
-     *
-     * @param title     Title of music
-     * @param artist    Artist of music
-     * @param date      Date of introduce
-     * @param listPrice List price of music
-     * @param price     Price of music
-     * @param version   Version of music
+     * Constructor with all parameters
+     * @param title     title of music
+     * @param artist    artist of music
+     * @param date      date of introduce
+     * @param listPrice list price of music
+     * @param price     price of music
+     * @param version   version of music
      */
     public Music(String title, String artist, String date, int listPrice, int price, int version) {
         this.title = title;
@@ -34,6 +33,7 @@ public class Music extends BaseModel {
      * Default constructor
      */
     public Music() {
+
     }
 
     /**

@@ -6,11 +6,13 @@ import java.util.Objects;
  * Class BaseModel
  */
 public class BaseModel {
+    /**
+     * id of model
+     */
     protected int id;
 
     /**
-     * Overrated equals method
-     *
+     * equals method
      * @param o Input object
      * @return Comparison result
      */
@@ -27,8 +29,7 @@ public class BaseModel {
     }
 
     /**
-     * Overrated hashCode method
-     *
+     * hashCode method
      * @return Hash
      */
     @Override

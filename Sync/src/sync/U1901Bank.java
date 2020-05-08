@@ -1,9 +1,24 @@
 package sync;
 
+/**
+ * Class to simulate bank operation
+ */
 public class U1901Bank {
+    /**
+     * sender
+     */
     private int intTo;
+    /**
+     * recipient
+     * default value: 220
+     */
     private int intFrom = 220;
 
+    /**
+     * Method for send money
+     * @param intTransaction value of sending money
+     * @param lngTimeout time delay
+     */
     public synchronized void  Calc(int intTransaction, long lngTimeout){
         System.out.println("\tBefore:");
         System.out.println("to - " + intTo);

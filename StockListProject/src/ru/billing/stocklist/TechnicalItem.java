@@ -6,13 +6,13 @@ public class TechnicalItem extends GenericItem {
 
     private short warrantyTime;
 
-    public TechnicalItem( String name, float price, Category type, short warrantyTime) {
-        super( name, price, type);
+    public TechnicalItem(String name, float price, Category type, short warrantyTime) {
+        super(name, price, type);
         this.warrantyTime = warrantyTime;
     }
 
-    private TechnicalItem(int ID, String name, float price, Category type, short warrantyTime) {
-        super(ID, name, price, type);
+    private TechnicalItem(int id, String name, float price, Category type, short warrantyTime) {
+        super(id, name, price, type);
         this.warrantyTime = warrantyTime;
     }
 
@@ -24,9 +24,15 @@ public class TechnicalItem extends GenericItem {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof TechnicalItem)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof TechnicalItem)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         TechnicalItem that = (TechnicalItem) o;
         return warrantyTime == that.warrantyTime;
     }
@@ -44,14 +50,14 @@ public class TechnicalItem extends GenericItem {
                 '}';
     }
 
-    public Object clone(){
-         TechnicalItem out = new TechnicalItem(
-                super.getID(),
+    public Object clone() {
+        TechnicalItem out = new TechnicalItem(
+                super.getId(),
                 super.getName(),
                 super.getPrice(),
                 super.getType(),
                 this.warrantyTime);
-         out.setAnalog(new GenericItem(getAnalog().getID(), getAnalog().getName(),
+        out.setAnalog(new GenericItem(getAnalog().getId(), getAnalog().getName(),
                  getAnalog().getPrice(), getAnalog().getType()));
 
         return out;

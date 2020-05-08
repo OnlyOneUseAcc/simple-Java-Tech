@@ -1,9 +1,5 @@
 package FirstLesson
 
-import groovy.lang.Binding
-
-
-
 FirstClass example1 = new FirstClass( "exz1",  567)
 
 Binding binding = new Binding()

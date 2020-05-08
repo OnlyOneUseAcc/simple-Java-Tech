@@ -7,22 +7,22 @@ public class FoodItem extends GenericItem {
     private Date dateOfIncome;
     private short expires;
 
-    public FoodItem( String name, float price, Category type, Date dateOfIncome, short expires) {
+    public FoodItem(String name, float price, Category type, Date dateOfIncome, short expires) {
         super(name, price, type);
         this.dateOfIncome = dateOfIncome;
         this.expires = expires;
     }
 
-    public FoodItem( String name, float price, Category type,  short expires) {
-        new FoodItem(name, price, type, new Date() , expires);
+    public FoodItem(String name, float price, Category type,  short expires) {
+        new FoodItem(name, price, type, new Date(), expires);
     }
 
-    public FoodItem(String name){
+    public FoodItem(String name) {
         new FoodItem(name, (float) 0, Category.GENERAL, new Date(), (short) 0);
     }
 
-    private FoodItem( int ID,String name, float price, Category type, Date dateOfIncome, short expires) {
-        super(ID, name, price, type);
+    private FoodItem(int id, String name, float price, Category type, Date dateOfIncome, short expires) {
+        super(id, name, price, type);
         this.dateOfIncome = dateOfIncome;
         this.expires = expires;
     }
@@ -30,16 +30,23 @@ public class FoodItem extends GenericItem {
     @Override
     public void printAll() {
         super.printAll();
-        if (dateOfIncome != null)
+        if (dateOfIncome != null) {
             System.out.println("\tIncome date: " + dateOfIncome.toString() + " expires: " + expires);
+        }
     }
 
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof FoodItem)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof FoodItem)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         FoodItem foodItem = (FoodItem) o;
         return expires == foodItem.expires &&
                 dateOfIncome.equals(foodItem.dateOfIncome);
@@ -59,16 +66,16 @@ public class FoodItem extends GenericItem {
                 '}';
     }
 
-    public Object clone(){
-         FoodItem out = new FoodItem(
-                super.getID(),
+    public Object clone() {
+        FoodItem out = new FoodItem(
+                super.getId(),
                 super.getName(),
                 super.getPrice(),
                 super.getType(),
                 this.dateOfIncome,
                 this.expires
         );
-        out.setAnalog(new GenericItem(getAnalog().getID(), getAnalog().getName(),
+        out.setAnalog(new GenericItem(getAnalog().getId(), getAnalog().getName(),
                 getAnalog().getPrice(), getAnalog().getType()));
         return out;
     }

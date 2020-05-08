@@ -9,14 +9,29 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * Loading catalog from files
+ */
 public class CatalogFileLoader implements ICatalogLoader {
 
+    /**
+     * name of source file
+     */
     private String fileName;
 
+    /**
+     * constructor which set name of source file
+     * @param fileName path to source file
+     */
     public CatalogFileLoader(String fileName) {
         this.fileName = fileName;
     }
 
+    /**
+     * Load catalog from default structured file
+     * @param cat catalog for loading
+     * @throws CatalogLoadException any exception during loading except ItemAlreadyExistException
+     */
     @Override
     public void load(ItemCatalog cat) throws CatalogLoadException {
         File file = new File(fileName);
@@ -42,8 +57,12 @@ public class CatalogFileLoader implements ICatalogLoader {
         }
     }
 
-
-    public void loadUTF8(ItemCatalog cat) throws IOException {
+    /**
+     * Load catalog from structured file with UTF-8
+     * @param cat catalog for loading
+     * @throws CatalogLoadException any exception during loading except ItemAlreadyExistException
+     */
+    public void loadUTF8(ItemCatalog cat) throws CatalogLoadException {
         File file = new File(fileName);
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
@@ -57,10 +76,17 @@ public class CatalogFileLoader implements ICatalogLoader {
             }
         } catch (ItemAlreadyExistException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            throw new CatalogLoadException();
         }
     }
 
-    public void loadWIN1251(ItemCatalog cat) throws IOException {
+    /**
+     * Load catalog from structured file with WIN-1251
+     * @param cat catalog for loading
+     * @throws CatalogLoadException any exception during loading except ItemAlreadyExistException
+     */
+    public void loadWIN1251(ItemCatalog cat) throws CatalogLoadException {
         File file = new File(fileName);
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
@@ -74,6 +100,9 @@ public class CatalogFileLoader implements ICatalogLoader {
             }
         } catch (ItemAlreadyExistException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            throw new CatalogLoadException();
         }
     }
 }
+

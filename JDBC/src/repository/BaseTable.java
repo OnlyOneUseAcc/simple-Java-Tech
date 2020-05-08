@@ -14,8 +14,7 @@ public class BaseTable implements Closeable {
     protected String tableName;       // Имя таблицы
 
     /**
-     * Constructor with parameters
-     *
+     * Constructor which get sql connection
      * @param tableName Name of table
      * @throws SQLException An exception that provides information on a database access error or other errors
      */
@@ -34,16 +33,16 @@ public class BaseTable implements Closeable {
                 connection.close();
             }
         } catch (SQLException e) {
-            System.out.println("Ошибка закрытия SQL соединения!");
+            e.printStackTrace();
         }
     }
 
     /**
      * Execute statement
      *
-     * @param sql         SQL
+     * @param sql sql string
      * @param description Description
-     * @throws SQLException An exception that provides information on a database access error or other errors
+     * @throws SQLException database access error or other errors
      */
     void executeSqlStatement(String sql, String description) throws SQLException {
         reopenConnection();
@@ -58,16 +57,15 @@ public class BaseTable implements Closeable {
     /**
      * Execute statement
      *
-     * @param sql SQL
-     * @throws SQLException An exception that provides information on a database access error or other errors
+     * @param sql sql string
+     * @throws SQLException database access error or other errors
      */
     void executeSqlStatement(String sql) throws SQLException {
         executeSqlStatement(sql, null);
     }
 
     /**
-     * Activate DB connection if this disconnect (активизация соединения с СУБД, если оно не активно)
-     *
+     * Activate DB connection
      * @throws SQLException An exception that provides information on a database access error or other errors
      */
     void reopenConnection() throws SQLException {
