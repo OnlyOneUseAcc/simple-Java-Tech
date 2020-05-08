@@ -1,0 +1,1 @@
+javac -d "D:\Java projects\simple-Java-Tech\out\production\simple-Java-Tech" Main.java

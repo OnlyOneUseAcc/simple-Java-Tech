@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FirstPlusThird/FirstPlusThird.iml" filepath="$PROJECT_DIR$/FirstPlusThird/FirstPlusThird.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JDBC/JDBC.iml" filepath="$PROJECT_DIR$/JDBC/JDBC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectGroovy/ProjectGroovy.iml" filepath="$PROJECT_DIR$/ProjectGroovy/ProjectGroovy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StockListProject/StockListProject.iml" filepath="$PROJECT_DIR$/StockListProject/StockListProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sync/Sync.iml" filepath="$PROJECT_DIR$/Sync/Sync.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-Java-Tech.iml" filepath="$PROJECT_DIR$/simple-Java-Tech.iml" />
+    </modules>
+  </component>
+</project>

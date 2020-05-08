@@ -1,0 +1,1 @@
+javadoc -d D:\Java projects\simple-Java-Tech\src\OnlyOneUseAcc\first\docs Main.java
