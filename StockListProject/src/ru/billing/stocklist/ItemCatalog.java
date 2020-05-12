@@ -2,24 +2,21 @@ package ru.billing.stocklist;
 
 import ru.billing.exceptions.ItemAlreadyExistException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Catalog of items
  */
 public class ItemCatalog {
     /**
-     * container of items1 (hashmap)
+     * container of items1 (map)
      */
-    private HashMap<Integer, GenericItem> catalog =
-            new HashMap<Integer, GenericItem>();
+    private Map<Integer, GenericItem> catalog;
 
     /**
-     * container of items1 (ArrayList)
+     * container of items1 (List)
      */
-    private ArrayList<GenericItem> allCatalog =
-            new ArrayList<GenericItem>();
+    private List<GenericItem> allCatalog;
 
     /**
      * Default constructor
@@ -73,8 +70,4 @@ public class ItemCatalog {
         }
         return null;
     }
-
-
-
-
 }

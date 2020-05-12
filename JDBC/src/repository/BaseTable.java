@@ -45,12 +45,16 @@ public class BaseTable implements Closeable {
      * @throws SQLException database access error or other errors
      */
     void executeSqlStatement(String sql, String description) throws SQLException {
-        reopenConnection();
-        Statement statement = connection.createStatement();
-        statement.execute(sql);
-        statement.close();
-        if (description != null) {
-            System.out.println(description);
+        try (Statement statement = connection.createStatement()) {
+            reopenConnection();
+            statement.execute(sql);
+            close();
+            if (description != null) {
+                System.out.println(description);
+            }
+        } catch (SQLException e) {
+            close();
+            throw new SQLException(e.getCause());
         }
     }
 
