@@ -12,5 +12,5 @@ public interface ICatalogLoader {
      * @param cat catalog for loading
      * @throws CatalogLoadException any mistake during work
      */
-    public void load (ItemCatalog cat) throws CatalogLoadException;
+    public void load(ItemCatalog cat) throws CatalogLoadException;
 }

@@ -8,14 +8,14 @@ public class U0901WorkArray<T extends Number> {
         this.arrNums = numP;
     }
 
-    public double Sum(){
-        if (this.arrNums == null){
+    public double sum() {
+        if (this.arrNums == null) {
             return 0;
         }
         double doubleWork = 0;
-        for(T tempNumber : arrNums){
+        for (T tempNumber : arrNums) {
             String tempStr = tempNumber.toString();
-            doubleWork += Double.parseDouble(tempStr) ;
+            doubleWork += Double.parseDouble(tempStr);
         }
         return doubleWork;
     }

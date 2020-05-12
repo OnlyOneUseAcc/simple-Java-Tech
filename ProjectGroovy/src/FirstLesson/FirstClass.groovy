@@ -29,7 +29,7 @@ class FirstClass {
      */
     FirstClass(Binding binding) {
         if (binding.hasVariable("name") ||
-                binding.hasVariable("count")){
+                binding.hasVariable("count")) {
             this.name = binding.getVariable("name") as String;
             this.count = binding.getVariable("count") as int;
         }
@@ -39,7 +39,7 @@ class FirstClass {
      * new type of creating functions
      * @return field count
      */
-    Integer getInt(){
+    Integer getInt() {
         this.count
     }
 }

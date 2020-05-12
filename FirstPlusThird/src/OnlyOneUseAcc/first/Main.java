@@ -10,7 +10,7 @@ public class Main {
      * Just for write two words
      * @param args default params
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //first
         System.out.println("Starting project");
 
@@ -32,19 +32,13 @@ public class Main {
         System.out.println(charVar);
         System.out.println(boolVar);
 
-        byte v_byte=120;
-        short v_short=129;
-        char v_char='a';
-        int v_int = 65999;
-        long v_long = 4294967;
-        float v_float= (float) 0.33333334;
-        double v_double=0.3333333333333333;
-        //double v_double2=true;
-
-
-
-
-
-
+        byte varByte = 120;
+        short varShort = 129;
+        char varChar = 'a';
+        int varInt = 65999;
+        long varLong = 4294967;
+        float varFloat = (float) 0.33333334;
+        double varDouble = 0.3333333333333333;
+        //double varDouble2 = true;
     }
 }

@@ -19,7 +19,7 @@ public class U1901Bank {
      * @param intTransaction value of sending money
      * @param lngTimeout time delay
      */
-    public synchronized void  Calc(int intTransaction, long lngTimeout){
+    public synchronized void calc(int intTransaction, long lngTimeout) {
         System.out.println("\tBefore:");
         System.out.println("to - " + intTo);
         System.out.println("from - " + intFrom);

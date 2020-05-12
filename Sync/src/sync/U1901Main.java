@@ -2,7 +2,7 @@ package sync;
 
 public class U1901Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         U1901Bank bankMain = new U1901Bank();
 

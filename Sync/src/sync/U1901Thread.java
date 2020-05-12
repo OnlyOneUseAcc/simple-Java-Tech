@@ -32,7 +32,7 @@ public class U1901Thread extends Thread {
     /**
      * Method which complete transaction
      */
-    public void run(){
-        bankWork.Calc(intTrans, lngSleep);
+    public void run() {
+        bankWork.calc(intTrans, lngSleep);
     }
 }
