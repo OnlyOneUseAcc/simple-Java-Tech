@@ -75,6 +75,7 @@ public class MusicTable extends BaseTable implements TableOperations {
                 int version = resultSet.getInt(7);
                 System.out.println(id + "   \t" + title + '\t' + artist + '\t' + date + '\t' + listPrice + '\t' + price + '\t' + version);
             }
+            resultSet.close();
         } catch (SQLException e){
             throw new SQLException(e.getCause());
         }
@@ -106,6 +107,7 @@ public class MusicTable extends BaseTable implements TableOperations {
                 music.setPrice(price);
                 music.setVersion(version);
             }
+            resultSet.close();
             return music;
         } catch (SQLException e){
             throw new SQLException( e.getCause());
