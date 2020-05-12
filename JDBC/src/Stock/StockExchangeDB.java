@@ -12,7 +12,7 @@ import java.sql.*;
 public class StockExchangeDB {
 
     public static final String DIR = "D:/java/SQL/db";
-    public static final String FILE = "stockExchange";
+    public static final String FILE = "table";
     public static final String URL = "jdbc:h2:/" + DIR + "/" + FILE;
     public static final String DRIVER = "org.h2.Driver";
 
