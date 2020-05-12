@@ -85,6 +85,7 @@ public class StockExchangeDB {
 
             stockExchangeDB.musicTable.deleteByID(2);
             stockExchangeDB.musicTable.printAll();
+            stockExchangeDB.musicTable.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

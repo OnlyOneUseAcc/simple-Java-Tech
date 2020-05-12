@@ -63,8 +63,7 @@ public class MusicTable extends BaseTable implements TableOperations {
      * @throws SQLException database access error or other errors
      */
     public void printAll() throws SQLException {
-        try {
-            Statement state = connection.createStatement();
+        try (Statement state = connection.createStatement()) {
             ResultSet resultSet = state.executeQuery("SELECT * FROM Musics");
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
@@ -77,7 +76,6 @@ public class MusicTable extends BaseTable implements TableOperations {
                 System.out.println(id + "   \t" + title + '\t' + artist + '\t' + date + '\t' + listPrice + '\t' + price + '\t' + version);
             }
         } catch (SQLException e){
-            close();
             throw new SQLException(e.getCause());
         }
 
@@ -90,27 +88,28 @@ public class MusicTable extends BaseTable implements TableOperations {
      * @throws SQLException database access error or other errors
      */
     public Music searchByID(int inputID) throws SQLException {
-        reopenConnection();
-        Statement state = connection.createStatement();
-        ResultSet resultSet = state.executeQuery("SELECT * FROM Musics WHERE ID =" + inputID);
-        Music music = new Music();
-        while (resultSet.next()) {
-            int id = resultSet.getInt(1);
-            String title = resultSet.getString(2);
-            String artist = resultSet.getString(3);
-            Date date = resultSet.getDate(4);
-            int listPrice = resultSet.getInt(5);
-            int price = resultSet.getInt(6);
-            int version = resultSet.getInt(7);
-            music.setTitle(title);
-            music.setArtist(artist);
-            music.setDate(date.toString());
-            music.setListPrice(listPrice);
-            music.setPrice(price);
-            music.setVersion(version);
+        try (Statement state = connection.createStatement()) {
+            ResultSet resultSet = state.executeQuery("SELECT * FROM Musics WHERE ID =" + inputID);
+            Music music = new Music();
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String title = resultSet.getString(2);
+                String artist = resultSet.getString(3);
+                Date date = resultSet.getDate(4);
+                int listPrice = resultSet.getInt(5);
+                int price = resultSet.getInt(6);
+                int version = resultSet.getInt(7);
+                music.setTitle(title);
+                music.setArtist(artist);
+                music.setDate(date.toString());
+                music.setListPrice(listPrice);
+                music.setPrice(price);
+                music.setVersion(version);
+            }
+            return music;
+        } catch (SQLException e){
+            throw new SQLException( e.getCause());
         }
-        close();
-        return music;
     }
 
     /**
@@ -120,9 +119,11 @@ public class MusicTable extends BaseTable implements TableOperations {
      * @throws SQLException An exception that provides information on a database access error or other errors
      */
     public void deleteByID(int inputID) throws SQLException {
-        Statement state = connection.createStatement();
-        int rows = state.executeUpdate("DELETE FROM Musics WHERE Id = " + inputID);
-
-        System.out.println(rows + " delete");
+        try (Statement state = connection.createStatement()) {
+            int rows = state.executeUpdate("DELETE FROM Musics WHERE Id = " + inputID);
+            System.out.println(rows + " delete");
+        } catch (SQLException e) {
+            throw new SQLException(e.getCause());
+        }
     }
 }
